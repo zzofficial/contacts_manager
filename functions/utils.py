@@ -2,7 +2,10 @@ import os
 import platform
 
 def clear_screen():
-    """Очищает консоль."""
+    """
+    Вспомогательный модуль для очистки консоли
+    """
+    
     if platform.system() == "Windows":
         os.system('cls')
     else:

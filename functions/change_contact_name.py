@@ -2,6 +2,17 @@ from .find_by_name import find_by_name
 from .find_by_id import find_by_id
 
 def change_contact_name(list_contacts):
+    """
+    Модуль, реализующий изменение имени контакта.
+    Предусмотрена проверка на наличие контакта с введенным пользователем именем в БД.
+
+    Поиск по БД реализован комбинированно: через имя,
+    которое пользователю предлагается ввести самому, а после, при
+    наличии нескольких пользователей с таким имеем, реализуется поиск
+    по ID. Пользователю предлагается ввести необходимый из выпадающего списка.
+    Предусмотрена проверка на валидность введенного ID.
+    
+    """
     inp_name_contact_to_change = input('Введите имя контакта, которое хотите изменить: ').strip()
     found_contact_list = find_by_name(list_contacts, inp_name_contact_to_change)
 
@@ -34,10 +45,3 @@ def change_contact_name(list_contacts):
     inp_new_contact_name = input(f'Введите новое имя для контакта "{found_contact['name']}": ').strip()
     found_contact['name'] = inp_new_contact_name
     print(f'Имя контакта "{inp_name_contact_to_change}" успешно измененно на "{inp_new_contact_name}".')
-
-    # if found_contact:
-    #     inp_new_name_contact = input('Введите новое имя для этого контакта: ')
-    #     found_contact['name'] = inp_new_name_contact
-    #     print(f'Имя контакта "{inp_name_contact_to_change}", успешно измененно на "{inp_new_name_contact}".')
-    # else:
-    #     print(f'Контакт с именем "{inp_name_contact_to_change}" - не найден!')

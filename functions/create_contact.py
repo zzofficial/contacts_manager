@@ -1,6 +1,14 @@
 import uuid
 
 def create_contact(list_contacts, keep=None):
+    """
+    Модуль, реализующий создание нового контакта.
+
+    Реализована проверка на валидность вводимого номера.
+    Реализована опциональность вводимой заметки для контакта.
+
+    
+    """
     inp_contact_name = input('Введите имя контакта: ')
     new_contact = {}
     new_id = str(uuid.uuid4())
@@ -8,13 +16,13 @@ def create_contact(list_contacts, keep=None):
     new_contact['name'] = inp_contact_name
     while True:
         inp_contact_number = input('Введите номер контакта: ')
-        if inp_contact_number.isdigit():
+        if inp_contact_number.isdigit(): # проверка номера на валидность
             number = int(inp_contact_number)
             new_contact['number'] = number
             break
         else:
             print('Некорректный номер!')
-    while True:
+    while True: # реализация опциональности добавления заметки
         inp_contact_keep_question = input('Хотели бы добавить заметку (y/n): ')
         if inp_contact_keep_question == 'y':
             inp_contact_keep_text = input('Введите текст заметки: ')

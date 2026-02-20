@@ -1,3 +1,9 @@
+"""
+Пакетный модуль
+
+"""
+
+
 __all__ = [
     'autosave',
     'change_contact_keep',
